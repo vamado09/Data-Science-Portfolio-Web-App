@@ -3,38 +3,38 @@ import os
 import requests
 import base64
 
+# Setting the app to be in wide mode
+st.set_page_config(layout="wide")
 
-def get_repositories_by_topic(topic):
+def get_repositories_by_topic(topic): # getting repositories
     keyword = f"#{topic.replace(' ', '')}"
-    return [repo for repo in repos if repo['description'] and keyword in repo['description']]
+    return [repo for repo in repos if repo["description"] and keyword in repo["description"]]
 
 
-def get_readme_content(repo_full_name):
+def get_readme_content(repo_full_name): # function to read content
     url = f"https://api.github.com/repos/{repo_full_name}/readme"
     headers = {
         "Accept": "application/vnd.github.v3+json"
-        # Add authorization header here if you're using a token
-        # "Authorization": "token YOUR_GITHUB_TOKEN"
     }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        content = base64.b64decode(response.json()['content']).decode('utf-8')
+        content = base64.b64decode(response.json()["content"]).decode("utf-8")
         return content
     else:
         return None
 
 
-url = 'https://api.github.com/users/vamado09/repos'
+url = "https://api.github.com/users/vamado09/repos"
 response = requests.get(url)
 repos = response.json()
 if not isinstance(repos, list):
-    st.error("Failed to load repositories. Please check the API endpoint.")
+    st.error("Failed to load repositories. Please check the API endpoint.") # this is necessary for me to know if its working or not
     repos = []
 
 
 st.title("Vicente De Leon Williams")
 st.subheader("**M.S. in Data Science**")
-st.write("**Data Science | Machine Learning | Deep Learning | Data Engineering**")
+st.write("**Data Science | Machine Learning & Deep Learning | Data Engineering | Big Data Analytics**")
 
 
 # Menu
@@ -100,7 +100,7 @@ if choice == "About Me":
     st.write("- Explore a collection of my completed projects.")
     st.write("- Dive into my professional experiences and achievements.")
     st.write("- Get in touch with me through provided contact information.")
-    st.write("**Important: Please remember to select 'Wide Mode' in the Settings to ensure the correct display of the application.**")
+    #st.write("**Important: Please remember to select 'Wide Mode' in the Settings to ensure the correct display of the application.**")
 
     # Custom CSS to set the background image with a linear gradient overlay
     st.markdown(f"""
@@ -119,7 +119,7 @@ if choice == "About Me":
 
     st.markdown(f"""
     <div class="about-section">
-        <h3>About Me: 🥊</h3>
+        <h3>About Me:</h3>
         <p>
         After graduating from Florida State University with a Bachelor’s in Risk Management & Insurance, I pursued my aspiration to excel as a professional athlete, focusing on the sport of boxing. Over the course of more than 10 years, I dedicated myself to reaching the pinnacle of the Panamanian National Olympic Team and aimed to secure the esteemed world champion title. Despite my relentless efforts, this dream eventually concluded, leading to a new chapter in my life.
         </p>
@@ -141,11 +141,12 @@ if choice == "About Me":
 if choice == "Data Science Projects":
     st.subheader("GitHub - Data Science Projects")
     st.write("**Select one of the following Data Science topics:**")
-    st.write("This selection encompasses projects aligned with relevant data science tasks, with a primary focus on various Machine Learning and Deep Learning undertakings. Once you make your selection, a link to the corresponding GitHub repository will be shown below.")
+    st.write("This selection encompasses projects aligned with relevant data science tasks, with a primary focus on various Machine Learning and Deep Learning undertakings as well as Big Data Analytics techniques using Hadoop and AWS. Once you make your selection, a link to the corresponding GitHub repository will be shown below.")
     
     topics = [
         ["Deep Learning Principles", "Applied Machine Learning", "Natural Language Processing"],
-        ["Apache Spark (PySpark)", "Basics of Scala Programming", "Applied Database Technologies"]
+        ["Apache Spark (PySpark)", "Basics of Scala Programming", "Applied Database Technologies"],
+        ["Apache Hadoop & AWS", "Cloud Computing", "Data Science In Practice"]
     ]
     
     images = [
@@ -158,6 +159,11 @@ if choice == "Data Science Projects":
             "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/SPARK.png",
             "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/SCALA2.png",
             "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/RDBS.png"
+        ],
+        [
+           "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/HadoopAWS.png",
+          "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/CP.png",
+          "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/DS_Practice.png"
         ]
     ]
 
@@ -200,11 +206,11 @@ if choice == "Data Science Projects":
       selected_repositories = get_repositories_by_topic(selected_topic)
       for repo in selected_repositories:
         # Fetch and display README content
-        readme_content = get_readme_content(repo['full_name'])  # Assuming the repo dictionary has a 'full_name' key
+        readme_content = get_readme_content(repo["full_name"])  # Assuming the repo dictionary has a 'full_name' key
         if readme_content:
             st.markdown(readme_content)
         else:
             st.write("README not available or failed to fetch.")
         
-        st.write(repo['description'])
+        st.write(repo["description"])
         st.markdown(f"[GitHub URL]({repo['html_url']})")
