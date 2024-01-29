@@ -38,7 +38,8 @@ st.write("**Data Science | Machine Learning & Deep Learning | Data Engineering |
 
 
 # Menu
-menu = ["About Me", "Data Science Projects"]
+# menu = ["About Me", "Data Science Projects"]
+menu = ["Theme", "About Me", "Data Science Projects"]
 choice = st.sidebar.selectbox("Menu", menu)
 
 # Space between Menu and Profile
@@ -89,8 +90,44 @@ html_resume = f'''
 '''
 st.sidebar.markdown(html_resume, unsafe_allow_html=True)
 
+# Choices -> Theme
+if choice == "Theme":
+    st.subheader("Theme Settings")
+    st.markdown("""
+    <style>
+        .big-font {
+            font-size:20px !important;
+        }
+        /* Custom CSS for captions */
+        .caption {
+            color: #333; /* Darker shade of grey */
+            font-size: 16px !important;
+            margin-bottom: 10px; /* Space above the image */
+        }
+        /* Space below images */
+        .stImage {
+            margin-bottom: 20px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<p class="big-font">Hello, and welcome to my Data Science Portfolio. Please check if you have the "Light" Mode enabled for the best viewing experience. You can find the Settings Menu in the top right corner of the app. If your default setting is the "Dark" theme, please proceed to select the "Light" theme. If "Light" Mode is already your default setting, feel free to skip this section and explore the other menu options directly.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Instructions for Setting up the "Light" Theme:</p>', unsafe_allow_html=True)
 
-# Choices -> About Me
+    # Caption and image for the first step
+    st.markdown('<p class="caption">Step 1: Open the settings menu</p>', unsafe_allow_html=True)
+    st.image("https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/setting1.png")
+
+    # Adding space between the images
+    st.markdown('<br>', unsafe_allow_html=True)
+
+    # Caption and image for the second step
+    st.markdown('<p class="caption">Step 2: Select "Light" from the Theme dropdown</p>', unsafe_allow_html=True)
+    st.image("https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/setting2.png")
+
+
+
+# Choice -> About Me
 if choice == "About Me":
     background_image_url = "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/Overview.png"
 
