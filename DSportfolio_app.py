@@ -178,29 +178,45 @@ if choice == "About Me":
 if choice == "Data Science Projects":
     st.subheader("GitHub - Data Science Projects")
     st.write("**Select one of the following Data Science topics:**")
-    st.write("This selection encompasses projects aligned with relevant data science tasks, with a primary focus on various Machine Learning and Deep Learning undertakings as well as Big Data Analytics techniques using Hadoop and AWS. Once you make your selection, a link to the corresponding GitHub repository will be shown below.")
+    st.write("This section of my portfolio showcases a wide array of projects, covering a diverse range of topics within data science. These include Machine Learning and Deep Learning applications, Big Data Analytics with Hadoop and AWS, and more. After choosing a topic, please scroll down to the bottom of the page. There, you will find a detailed description along with the corresponding GitHub repository URL for more in-depth information.")
+    st.write("- Data Science and AI: Nike, ML Risk Analytics, Deep Learning Principles, Applied Machine Learning, Virtual Tissue Simulation, Large Language Models, NLP, and Applied Data Science.")
+    st.write("- Big Data Analytics: Apache Spark (PySpark), Apache Hadoop & AWS, and Basics of Scala Programming.")
+    st.write("- Statistics and RDBS:  City of Bloomington Indiana, Data Visualization, Applied Database Technologies.")
     
     topics = [
-        ["Deep Learning Principles", "Applied Machine Learning", "Natural Language Processing"],
-        ["Apache Spark (PySpark)", "Basics of Scala Programming", "Applied Database Technologies"],
-        ["Apache Hadoop & AWS", "Cloud Computing", "Data Science In Practice"]
+        ["Nike", "ML Risk Analytics", "Deep Learning Principles"],
+        ["Applied Machine Learning", "Virtual Tissue Simulation", "Large Language Models"],
+        ["City of Bloomington Indiana", "Apache Spark (PySpark)", "Basics of Scala Programming"],
+        ["Natural Language Processing", "Applied Data Science", "Applied Database Technologies"],
+        ["Data Science In Practice", "Data Visualization", "Apache Hadoop & AWS"]
     ]
     
     images = [
+    
         [
-            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/DL2.png",
-            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/ML2.png",
-            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/NLP.png"
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/nike.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/risk2.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/DL2.png"
         ],
         [
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/ML2.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/VTS2.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/LLM.png"
+        ],
+        [
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/citybloomington.png",
             "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/SPARK.png",
-            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/SCALA2.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/SCALA2.png"
+        ],
+        [
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/NLP.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/ADS2.png",
             "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/RDBS.png"
         ],
         [
-           "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/HadoopAWS.png",
-          "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/CP.png",
-          "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/DS_Practice.png"
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/DS_Practice.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/visualization.png",
+            "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/HadoopAWS.png"
         ]
     ]
 
