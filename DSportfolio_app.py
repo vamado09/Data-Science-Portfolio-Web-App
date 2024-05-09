@@ -80,7 +80,7 @@ html_github = f'''
 st.sidebar.markdown(html_github, unsafe_allow_html=True)
 
 # Download Resume
-resume_url = "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/VicenteResume.pdf"
+resume_url = "https://raw.githubusercontent.com/vamado09/Images-Streamlit/main/VicenteDeLeon.pdf"
 html_resume = f'''
     <a href="{resume_url}" target="_blank" download style="text-decoration: none;">
         <div style="background-color: white; border: 1px solid #888; padding: 10px; text-align: center; border-radius: 5px; margin-top: 10px;">
